@@ -22,8 +22,8 @@ import java.sql.DriverManager;
  * @Author: liuhai
  * @Date: 2020/6/2 10:36
  */
-@SpringBootConfiguration
-@MapperScan(basePackages={"com.lh.stock.lhstock.dao"})
+//@SpringBootConfiguration
+//@MapperScan(basePackages={"com.lh.stock.lhstock.dao"})
 public class DataSourceConfigure {
 
 
