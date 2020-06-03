@@ -8,10 +8,10 @@ import com.lh.stock.lhstock.syncdata.request.ISyncRequest;
  * @Author: liuhai
  * @Date: 2020/6/3 20:15
  */
-public class FetchGoodsStockRequest extends AbstractGoodsStockRequest implements ISyncRequest {
+public class UpdateGoodsStockRequest extends AbstractGoodsStockRequest implements ISyncRequest {
 
 
-    public FetchGoodsStockRequest(GoodsStockPO goodsStockPO, IGoodsStockService goodsStockService) {
+    public UpdateGoodsStockRequest(GoodsStockPO goodsStockPO, IGoodsStockService goodsStockService) {
         super(goodsStockPO, goodsStockService);
     }
 
