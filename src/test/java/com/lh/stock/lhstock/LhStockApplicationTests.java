@@ -1,6 +1,7 @@
 package com.lh.stock.lhstock;
 
 import com.lh.stock.lhstock.dao.UserDao;
+import com.lh.stock.lhstock.service.impl.RedisCacheService;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,14 +20,14 @@ class LhStockApplicationTests {
     private UserDao userDao;
 
     @Autowired
-    JedisCluster jedisCluster;
+    RedisCacheService redisCacheService;
 
     @Test
     void contextLoads() {
 
-        System.out.println(userDao.listUserInfo(0, 10));
+//        System.out.println(userDao.listUserInfo(0, 10));
 
-        System.out.println(jedisCluster.get("mykey1:{100}"));
+        System.out.println(redisCacheService.getCacheByKey("mykey1:{100}"));
     }
 
 }
