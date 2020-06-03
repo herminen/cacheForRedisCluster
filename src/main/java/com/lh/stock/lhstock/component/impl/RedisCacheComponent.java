@@ -24,7 +24,7 @@ public class RedisCacheComponent implements ICacheComponent {
         return jedisCluster.del(key) > 0;
     }
 
-    public String setCacheByKey(String key, String value){
-        return jedisCluster.set(key,value);
+    public void setCacheByKey(String key, String value){
+        jedisCluster.set(key,value);
     }
 }

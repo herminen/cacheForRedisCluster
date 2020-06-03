@@ -21,5 +21,5 @@ public interface IGoodsStockService {
      * @param goodsStockPO
      * @return
      */
-    GoodsStockPO fetchGoodsStockById(GoodsStockPO goodsStockPO);
+    void updateGoodsStockCache(GoodsStockPO goodsStockPO);
 }

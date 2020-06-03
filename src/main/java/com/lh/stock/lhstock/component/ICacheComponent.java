@@ -18,4 +18,11 @@ public interface ICacheComponent {
      * @return
      */
     boolean deleteCacheByKey(String key);
+
+    /**
+     * 设置缓存
+     * @param key
+     * @param value
+     */
+    void setCacheByKey(String key, String value);
 }
