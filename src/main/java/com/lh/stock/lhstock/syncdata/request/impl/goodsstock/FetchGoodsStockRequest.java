@@ -18,6 +18,6 @@ public class FetchGoodsStockRequest extends AbstractGoodsStockRequest implements
 
     @Override
     public void process() {
-        this.goodsStockPO = goodsStockService.updateGoodsStockCache(goodsStockPO);
+        goodsStockService.updateGoodsStockCache(goodsStockPO);
     }
 }
