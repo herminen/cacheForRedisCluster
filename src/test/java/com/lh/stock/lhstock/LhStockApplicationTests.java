@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
+import redis.clients.jedis.JedisCluster;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = LhStockApplication.class)
@@ -18,9 +18,15 @@ class LhStockApplicationTests {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    JedisCluster jedisCluster;
+
     @Test
     void contextLoads() {
+
         System.out.println(userDao.listUserInfo(0, 10));
+
+        System.out.println(jedisCluster.get("mykey1:{100}"));
     }
 
 }
