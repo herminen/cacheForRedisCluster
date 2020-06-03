@@ -31,6 +31,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
+            <!--使用jedis-->
             <exclusions>
                 <exclusion>
                     <groupId>io.lettuce</groupId>
@@ -71,6 +72,12 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>19.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.68</version>
         </dependency>
 
     </dependencies>

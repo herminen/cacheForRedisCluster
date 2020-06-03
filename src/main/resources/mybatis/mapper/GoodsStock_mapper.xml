@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lh.stock.lhstock.dao.GoodsStockDao">
+    <resultMap id="baseResultMap" type="com.lh.stock.lhstock.po.GoodsStockPO">
+        <id column="stock_id" property="stockId" jdbcType="BIGINT"/>
+        <result column="goods_id" property="goodsId" jdbcType="BIGINT"/>
+        <result column="goods_stock" property="goodsStock" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <update id="updateGoodsStockById" parameterType="com.lh.stock.lhstock.po.GoodsStockPO">
+        update t_goods_stock
+        set goods_stock = #{goodsStock,jdbcType=BIGINT}
+        where goods_id = #{goodsId,jdbcType=BIGINT}
+    </update>
+
+    <select id="getGoodsStockById" parameterType="java.lang.Long" resultType="com.lh.stock.lhstock.po.GoodsStockPO">
+        select stock_id, goods_id, goods_stock from t_goods_stock where stock_id=#{stockId, jdbcType=BIGINT}
+    </select>
+
+</mapper>

@@ -11,4 +11,9 @@ public interface ISyncRequest {
      * @return
      */
     String getReuestId();
+
+    /**
+     * 处理请求
+     */
+    void process();
 }

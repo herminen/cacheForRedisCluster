@@ -1,14 +1,14 @@
 package com.lh.stock.lhstock;
 
+import com.lh.stock.lhstock.component.ICacheComponent;
 import com.lh.stock.lhstock.dao.UserDao;
-import com.lh.stock.lhstock.service.impl.RedisCacheService;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-import redis.clients.jedis.JedisCluster;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = LhStockApplication.class)
@@ -19,8 +19,10 @@ class LhStockApplicationTests {
     @Autowired
     private UserDao userDao;
 
+
     @Autowired
-    RedisCacheService redisCacheService;
+    @Qualifier("redisCacheComponent")
+    ICacheComponent redisCacheService;
 
     @Test
     void contextLoads() {
