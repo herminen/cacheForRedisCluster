@@ -26,7 +26,9 @@ public class SyncDataCallable implements Callable<ISyncResponse> {
     public ISyncResponse call() throws Exception {
         while(!shutdown){
             ISyncRequest poll = syncRequestQueue.poll(100, TimeUnit.MILLISECONDS);
-            poll.process();
+            if(null != poll){
+                poll.process();
+            }
         }
         return null;
     }

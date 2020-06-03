@@ -27,7 +27,7 @@ public class LhStockSyncDataTest {
     SyncDataThreadExecutor syncDataThreadExecutor;
 
     @Test
-    public void testGoodsStockConsensus(){
+    public void testGoodsStockConsensus() throws InterruptedException {
         GoodsStockPO stockPO = new GoodsStockPO();
         stockPO.setStockId(1L);
         stockPO.setGoodsId(1L);
@@ -35,5 +35,7 @@ public class LhStockSyncDataTest {
 
         ModifyGoodsStockRequest modifyGoodsStockRequest = new ModifyGoodsStockRequest(stockPO,goodsStockService);
         syncDataThreadExecutor.syncData(modifyGoodsStockRequest);
+
+        Thread.sleep(Integer.MAX_VALUE);
     }
 }
