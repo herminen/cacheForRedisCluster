@@ -13,11 +13,14 @@ import java.util.concurrent.ArrayBlockingQueue;
 public class SyncRequestQueue {
 
     private List<ArrayBlockingQueue<ISyncRequest>> queueList;
-    private static ArrayBlockingQueue<ISyncRequest> EMPTY_QUEUE = new ArrayBlockingQueue<ISyncRequest>(0);
+    private static ArrayBlockingQueue<ISyncRequest> EMPTY_QUEUE = new ArrayBlockingQueue<ISyncRequest>(1);
 
 
     private SyncRequestQueue(int queueSize){
         queueList = Lists.newArrayListWithExpectedSize(queueSize);
+        for (int i = 0; i < queueSize; i++) {
+            queueList.add(new ArrayBlockingQueue<ISyncRequest>(100));
+        }
     }
 
     public void addSyncRequest(ISyncRequest syncRequest){
@@ -33,7 +36,7 @@ public class SyncRequestQueue {
     }
 
     private int hashQueueNo(ISyncRequest syncRequest) {
-        return 0;
+        return syncRequest.getReuestId().hashCode() % queueList.size();
     }
 
     public static SyncRequestQueue getInstance(int queueSize){

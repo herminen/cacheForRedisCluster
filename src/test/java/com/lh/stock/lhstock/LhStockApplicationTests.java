@@ -21,7 +21,7 @@ class LhStockApplicationTests {
 
 
     @Autowired
-    @Qualifier("redisCacheComponent")
+    @Qualifier("jedisCacheComponent")
     ICacheComponent redisCacheService;
 
     @Test

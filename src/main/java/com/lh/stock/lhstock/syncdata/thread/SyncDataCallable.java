@@ -6,6 +6,7 @@ import com.lh.stock.lhstock.syncdata.response.ISyncResponse;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: liuhai
@@ -24,7 +25,8 @@ public class SyncDataCallable implements Callable<ISyncResponse> {
     @Override
     public ISyncResponse call() throws Exception {
         while(!shutdown){
-
+            ISyncRequest poll = syncRequestQueue.poll(100, TimeUnit.MILLISECONDS);
+            poll.process();
         }
         return null;
     }

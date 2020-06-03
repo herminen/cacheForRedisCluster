@@ -9,7 +9,7 @@ import redis.clients.jedis.JedisCluster;
  * @Author: liuhai
  * @Date: 2020/6/3 19:35
  */
-@Component("redisCacheComponent")
+@Component("jedisCacheComponent")
 public class RedisCacheComponent implements ICacheComponent {
     @Autowired
     private JedisCluster jedisCluster;
