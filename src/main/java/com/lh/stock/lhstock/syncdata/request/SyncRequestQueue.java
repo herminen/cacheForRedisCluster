@@ -2,6 +2,8 @@ package com.lh.stock.lhstock.syncdata.request;
 
 import com.google.common.collect.Lists;
 import com.lh.stock.lhstock.syncdata.request.impl.goodsstock.RefreshGoodsStockRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -11,6 +13,8 @@ import java.util.concurrent.ArrayBlockingQueue;
  * @Date: 2020/6/3 15:42
  */
 public class SyncRequestQueue {
+    // logback
+    private final static Logger logger = LoggerFactory.getLogger(SyncRequestQueue.class);
 
     private List<ArrayBlockingQueue<ISyncRequest>> queueList;
     private static ArrayBlockingQueue<ISyncRequest> EMPTY_QUEUE = new ArrayBlockingQueue<ISyncRequest>(1);
@@ -33,7 +37,11 @@ public class SyncRequestQueue {
         if(syncRequest instanceof RefreshGoodsStockRequest && queueList.get(queueNo).contains(syncRequest)){
             return;
         }
-        queueList.get(queueNo).add(syncRequest);
+        try {
+            queueList.get(queueNo).add(syncRequest);
+        }catch (Exception e){
+            logger.warn("request queue is full. request:" + syncRequest.toString(), e);
+        }
     }
 
     /**

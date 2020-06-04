@@ -43,4 +43,12 @@ public abstract class AbstractGoodsStockRequest implements ISyncRequest {
     public int hashCode() {
         return Objects.hash(type + SEP_COMBINE_KEY + getReuestId());
     }
+
+    @Override
+    public String toString() {
+        return "AbstractGoodsStockRequest{" +
+                "goodsStockPO=" + goodsStockPO +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }

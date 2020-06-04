@@ -16,4 +16,6 @@ public interface ISyncRequest {
      * 处理请求
      */
     void process();
+
+    String toString();
 }
