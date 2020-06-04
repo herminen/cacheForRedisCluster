@@ -4,8 +4,7 @@ import com.lh.stock.lhstock.component.ICacheComponent;
 import com.lh.stock.lhstock.po.GoodsStockPO;
 import com.lh.stock.lhstock.service.IGoodsStockService;
 import com.lh.stock.lhstock.syncdata.SyncDataThreadExecutor;
-import com.lh.stock.lhstock.syncdata.request.impl.goodsstock.ModifyGoodsStockRequest;
-import com.lh.stock.lhstock.syncdata.request.impl.goodsstock.UpdateGoodsStockRequest;
+import com.lh.stock.lhstock.syncdata.request.impl.goodsstock.RefreshGoodsStockRequest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +39,7 @@ public class LhStockSyncDataTest {
 
 //        ModifyGoodsStockRequest modifyGoodsStockRequest = new ModifyGoodsStockRequest(stockPO,goodsStockService);
 
-        UpdateGoodsStockRequest updateGoodsStockRequest = new UpdateGoodsStockRequest(stockPO, goodsStockService);
+        RefreshGoodsStockRequest updateGoodsStockRequest = new RefreshGoodsStockRequest(stockPO, goodsStockService);
         syncDataThreadExecutor.syncData(updateGoodsStockRequest);
 
 
