@@ -8,7 +8,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
     <!-- 定义日志的根目录 -->
     <property name="LOG_HOME" value="/app/log" />
     <!-- 定义日志文件名称 -->
-    <property name="appName" value="ll-springboot"></property>
+    <property name="appName" value="lh-stock"></property>
     <!-- ch.qos.logback.core.ConsoleAppender 表示控制台输出 -->
     <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
         <!--
@@ -75,7 +75,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
 　　　　　　　类中引入了logger日志对象时，level级别用info,debug都可以，都有错误信息输出。
 　　 -->
     <!-- hibernate logger -->
-    <logger name="com.ll" level="info" />
+    <logger name="com.lh.stock.lhstock" level="info" />
     <!-- Spring framework logger -->
     <logger name="org.springframework" level="debug" additivity="false"></logger>
 
