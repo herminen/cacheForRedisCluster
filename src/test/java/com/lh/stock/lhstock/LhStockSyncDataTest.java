@@ -39,8 +39,10 @@ public class LhStockSyncDataTest {
 
 //        ModifyGoodsStockRequest modifyGoodsStockRequest = new ModifyGoodsStockRequest(stockPO,goodsStockService);
 
-        RefreshGoodsStockRequest updateGoodsStockRequest = new RefreshGoodsStockRequest(stockPO, goodsStockService);
-        syncDataThreadExecutor.syncData(updateGoodsStockRequest);
+        RefreshGoodsStockRequest refreshGoodsStockRequest = new RefreshGoodsStockRequest(stockPO, goodsStockService);
+        syncDataThreadExecutor.syncData(refreshGoodsStockRequest);
+        syncDataThreadExecutor.syncData(refreshGoodsStockRequest);
+        syncDataThreadExecutor.syncData(refreshGoodsStockRequest);
 
 
         Thread.sleep(2000);

@@ -12,7 +12,7 @@ public class RefreshGoodsStockRequest extends AbstractGoodsStockRequest implemen
 
 
     public RefreshGoodsStockRequest(GoodsStockPO goodsStockPO, IGoodsStockService goodsStockService) {
-        super(goodsStockPO, goodsStockService);
+        super(goodsStockPO, goodsStockService, "refresh");
     }
 
 
