@@ -13,7 +13,7 @@
         where goods_id = #{goodsId,jdbcType=BIGINT}
     </update>
 
-    <select id="getGoodsStockById" parameterType="java.lang.Long" resultType="com.lh.stock.lhstock.po.GoodsStockPO">
+    <select id="getGoodsStockById" parameterType="java.lang.Long" resultMap="baseResultMap">
         select stock_id, goods_id, goods_stock from t_goods_stock where stock_id=#{stockId, jdbcType=BIGINT}
     </select>
 

@@ -5,6 +5,7 @@ import com.lh.stock.lhstock.po.GoodsStockPO;
 import com.lh.stock.lhstock.service.IGoodsStockService;
 import com.lh.stock.lhstock.syncdata.SyncDataThreadExecutor;
 import com.lh.stock.lhstock.syncdata.request.impl.goodsstock.ModifyGoodsStockRequest;
+import com.lh.stock.lhstock.syncdata.request.impl.goodsstock.UpdateGoodsStockRequest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,10 @@ public class LhStockSyncDataTest {
     @Autowired
     SyncDataThreadExecutor syncDataThreadExecutor;
 
+    @Autowired
+    @Qualifier("jedisCacheComponent")
+    ICacheComponent redisCacheService;
+
     @Test
     public void testGoodsStockConsensus() throws InterruptedException {
         GoodsStockPO stockPO = new GoodsStockPO();
@@ -33,9 +38,16 @@ public class LhStockSyncDataTest {
         stockPO.setGoodsId(1L);
         stockPO.setGoodsStock(500L);
 
-        ModifyGoodsStockRequest modifyGoodsStockRequest = new ModifyGoodsStockRequest(stockPO,goodsStockService);
-        syncDataThreadExecutor.syncData(modifyGoodsStockRequest);
+//        ModifyGoodsStockRequest modifyGoodsStockRequest = new ModifyGoodsStockRequest(stockPO,goodsStockService);
 
-        Thread.sleep(Integer.MAX_VALUE);
+        UpdateGoodsStockRequest updateGoodsStockRequest = new UpdateGoodsStockRequest(stockPO, goodsStockService);
+        syncDataThreadExecutor.syncData(updateGoodsStockRequest);
+
+
+        Thread.sleep(2000);
+        System.out.println(redisCacheService.getCacheByKey(stockPO.getRedisStockKey()));
+
+
+
     }
 }
