@@ -3,14 +3,14 @@ spring:
    redis:
      cluster:
        nodes:
-         - 192.168.79.130:7001
-         - 192.168.79.131:7003
-         - 192.168.79.132:7005
+         - 192.168.0.31:7000
+         - 192.168.0.32:7002
+         - 192.168.0.33:7004
        max-redirects: 5
 
    ##datasource
    datasource:
-     url: jdbc:mysql://192.168.79.133:3306/Order?characterEncoding=utf8
+     url: jdbc:mysql://192.168.0.10:3306/Order?characterEncoding=utf8
      username: root
      password: 123456
      driver-class-name: com.mysql.cj.jdbc.Driver
@@ -22,7 +22,7 @@ server:
 ##mybatis
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*_mapper.xml
-  type-aliases-package: com.lh.stock.lhstock.po.com.lh.stock.lhstock.dao
+  type-aliases-package: com.lh.stock.lhstock.po
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 

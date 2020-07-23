@@ -3,6 +3,8 @@ package com.lh.stock.lhstock.system;
 import com.alibaba.druid.pool.DruidDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
@@ -14,8 +16,8 @@ import javax.sql.DataSource;
  * @Author: liuhai
  * @Date: 2020/6/2 10:36
  */
-//@SpringBootConfiguration
-//@MapperScan(basePackages={"com.lh.stock.lhstock.dao"})
+@SpringBootConfiguration
+@MapperScan(basePackages={"com.lh.stock.lhstock.dao"})
 public class DataSourceConfigure {
 
 
