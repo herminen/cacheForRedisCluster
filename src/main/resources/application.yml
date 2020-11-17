@@ -32,4 +32,4 @@ logging:
   pattern:
     console: "%d - %msg%n"
   level:
-    root: info
+    root: debug

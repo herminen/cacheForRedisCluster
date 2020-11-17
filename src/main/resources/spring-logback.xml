@@ -77,7 +77,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
     <!-- hibernate logger -->
     <logger name="com.lh.stock.lhstock" level="info" />
     <!-- Spring framework logger -->
-    <logger name="org.springframework" level="debug"></logger>
+    <logger name="org.springframework.boot" level="trace"></logger>
 
     <!--
             使用mybatis的时候，sql语句是debug下才会打印，而这里我们只配置了info，所以想要查看sql语句的话，有以下两种操作：
@@ -95,13 +95,13 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
 
     <!-- 4. 最终的策略 -->
     <!-- 4.1 开发环境:打印控制台-->
-    <springProfile name="dev">
-        <logger name="com.lh.stock.lhstock" level="info"/>
-    </springProfile>
+    <!--<springProfile name="dev">-->
+        <!--<logger name="com.lh.stock.lhstock" level="info"/>-->
+    <!--</springProfile>-->
 
-    <root level="info">
-        <appender-ref ref="stdout" />
-    </root>
+    <!--<root level="info">-->
+        <!--<appender-ref ref="stdout" />-->
+    <!--</root>-->
 
     <!-- 4.2 生产环境:输出到文档
     <springProfile name="pro">
